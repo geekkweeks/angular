@@ -1,5 +1,5 @@
 <div class="container">
-  
+
   <div class="row">
     <div class="col-xs-12">
       <h3>I'm in the AppComponent! NEW FEATURE</h3>
@@ -32,16 +32,21 @@
     </div>
   </div>
 
-  <app-cockpit 
-    (serverCreated)="onServerAdded($event)"
-    (blueprintCreated)="onBluePrintAdded($event)"></app-cockpit>
+  <app-cockpit (serverCreated)="onServerAdded($event)" (blueprintCreated)="onBluePrintAdded($event)"></app-cockpit>
   <hr>
   <div class="row">
     <div class="col-xs-12">
-      <app-server-element *ngFor="let serverElement of serverElements"
-        [srvElement]="serverElement"></app-server-element>
+      <app-server-element *ngFor="let serverElement of serverElements" [srvElement]="serverElement">
+        <p>
+          <strong *ngif="serverElement.type === 'server'" style="color:red">{{serverElement.content}}</strong>
+          <em *ngIf="serverElement.type === 'blueprint'">{{serverElement.content}}</em>
+
+          <!-- <strong style="color:red">{{element.content}}</strong>
+            <em >{{element.content}}</em> -->
+        </p>
+      </app-server-element>
     </div>
   </div>
 
-  
+
 </div>
