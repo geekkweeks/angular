@@ -19,6 +19,22 @@ export class AppComponent {
     { type: 'server', name: 'TestServer', content: 'for testing only' }
   ];
 
+  onServerAdded(serverData: {serverName: string, serverContent: string}){
+    this.serverElements.push({
+      type: 'server',
+      name: serverData.serverName,
+      content: serverData.serverContent,
+    });
+  }
+
+  onBluePrintAdded(blueprintData: {serverName: string, serverContent: string}){
+    this.serverElements.push({
+      type: 'blueprint',
+      name: blueprintData.serverName,
+      content: blueprintData.serverContent,
+    });
+  }
+
   onToggleDetails() {
     this.showSecret = !this.showSecret;
     // this.logs.push(this.logs.length + 1);
